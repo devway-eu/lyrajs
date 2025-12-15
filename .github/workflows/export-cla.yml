@@ -1,0 +1,19 @@
+name: Export CLA signatures
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  export-cla:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload CLA signatures artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cla-signatures-${{ github.ref_name }}
+          path: signatures/cla.json

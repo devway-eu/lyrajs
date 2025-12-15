@@ -1,0 +1,38 @@
+name: Update contributors list
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  update-contributors:
+    if: |
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate contributors list
+        uses: akhilmhdh/contributors-readme-action@v2.3
+        with:
+          readme_file: 'CONTRIBUTORS.md'
+          image_size: 80
+          columns: 7
+          commit_message: "docs: update contributors list [skip ci]"
+          exclude: |
+            github-actions
+            dependabot
+            dependabot[bot]
+
+      - name: Commit & push contributors update
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add CONTRIBUTORS.md
+          git commit -m "docs: update contributors list" || echo "No changes"
+          git push

@@ -1,0 +1,38 @@
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2025 Matthieu Fergola
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---
+
+CONTRIBUTOR LICENSE AGREEMENT
+
+By submitting a contribution to this project, you agree that:
+
+1. You grant Matthieu Fergola (the project owner) a perpetual, worldwide,
+   non-exclusive, royalty-free, irrevocable license to use, reproduce,
+   modify, display, perform, sublicense, and distribute your contribution
+   under any license terms (including proprietary licenses).
+
+2. You grant Matthieu Fergola the right to relicense the entire codebase
+   (including your contributions) under different terms in the future.
+
+3. You certify that your contribution is your original work or you have
+   the right to submit it under these terms.
+
+4. You understand that your contributions will be publicly available
+   under GPL-3.0 to end users, but Matthieu Fergola retains the right
+   to use them in proprietary versions.

@@ -1,0 +1,6 @@
+[submodule "lyrajs-core"]
+	path = lyrajs-core
+	url = https://github.com/devway-eu/lyrajs-core.git
+[submodule "lyrajs-template"]
+	path = lyrajs-template
+	url = https://github.com/devway-eu/lyrajs-template.git
