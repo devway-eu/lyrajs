@@ -4,7 +4,6 @@
 [![CLA Assistant](https://cla-assistant.io/readme/badge/devway-eu/lyrajs)](https://cla-assistant.io/devway-eu/lyrajs)
 [![docs](https://img.shields.io/badge/docs-read-green)](https://lyrajs.dev)
 [![Discord](https://img.shields.io/discord/1449345012604342427?label=discord&logo=discord&logoColor=white)](https://discord.gg/cWvUh8pQNU)
-![License](https://img.shields.io/github/license/devway-eu/lyrajs)
 
  
 LyraJS is a lightweight and modern, developer-friendly TypeScript framework for building robust APIs. It's designed to accelerate API development and provides a comprehensive set of tools including an ORM system, code generation CLI, authentication middleware, and more.
