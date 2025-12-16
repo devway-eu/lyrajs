@@ -1,5 +1,7 @@
 # LyraJS
 
+[![npm version](https://img.shields.io/npm/v/mon-package)](https://www.npmjs.com/package/create-lyrajs)
+
 LyraJS is a lightweight and modern, developer-friendly TypeScript framework for building robust APIs. It's designed to accelerate API development and provides a comprehensive set of tools including an ORM system, code generation CLI, authentication middleware, and more.
 
 ## Core Features
