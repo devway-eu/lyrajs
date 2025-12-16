@@ -196,7 +196,7 @@ parameters:
 ### Accessing Configuration
 
 ```typescript
-import { Config } from '@lyrajs/core';
+import { Config } from '@lyra-js/core';
 
 const config = new Config();
 const apiName = config.get('parameters.api_name');
@@ -248,7 +248,7 @@ This is the main LyraJS repository, organized as a monorepo with Git submodules:
 
 ```
 lyrajs/
-├── lyrajs-core/              # Core framework library (@lyrajs/core on npm)
+├── lyrajs-core/              # Core framework library (@lyra-js/core on npm)
 └── lyrajs-template/          # Project starter template
 ```
 
@@ -313,7 +313,7 @@ npm link
 
 # In your test project
 cd /path/to/your/test-project
-npm link @lyrajs/core
+npm link @lyra-js/core
 
 # Test your changes
 npm run dev
@@ -352,7 +352,7 @@ Please read the following before contributing:
 - **Core Repository**: [github.com/devway-eu/lyrajs-core](https://github.com/devway-eu/lyrajs-core)
 - **Template Repository**: [github.com/devway-eu/lyrajs-template](https://github.com/devway-eu/lyrajs-template)
 - **Documentation Website**: [lyrajs.dev](https://lyrajs.dev)
-- **npm Package**: [npmjs.com/package/@lyrajs/core](https://www.npmjs.com/package/@lyrajs/core)
+- **npm Package**: [npmjs.com/package/@lyra-js/core](https://www.npmjs.com/package/@lyra-js/core)
 
 ## Support
 
