@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://lyrajs.dev/docs
+    about: Check the documentation for guides, API reference, and examples
+  - name: 💬 GitHub Discussions
+    url: https://github.com/devway-eu/lyrajs/discussions
+    about: Ask questions, share ideas, and discuss with the community
+  - name: 🔧 Core Framework Issues
+    url: https://github.com/devway-eu/lyrajs-core/issues
+    about: Report bugs or request features for @lyrajs/core
+  - name: 📦 Template Issues
+    url: https://github.com/devway-eu/lyrajs-template/issues
+    about: Report bugs or request features for create-lyrajs
+  - name: 📧 Contact
+    url: mailto:matthieu@dev-way.eu
+    about: Contact the maintainers directly

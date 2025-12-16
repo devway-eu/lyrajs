@@ -21,5 +21,5 @@ jobs:
         with:
           path-to-cla-document: 'CLA.md'
           path-to-signatures: 'signatures/cla.json'
-          allowlist: bot*
+          allowlist: bot*,dependabot[bot],github-actions[bot]
           check-only-author: false

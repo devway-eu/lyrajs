@@ -42,6 +42,6 @@ You understand that the decision to include Your Contribution is entirely at the
 
 **By submitting a Contribution, you accept and agree to these terms.**
 
-For questions, contact: [your-email@example.com]
+For questions, contact: [matthieu@dev-way.eu]
 
 *Last updated: 2025*

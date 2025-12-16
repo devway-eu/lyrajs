@@ -1,0 +1,93 @@
+name: Bug Report
+description: Report a bug in LyraJS
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug in LyraJS!
+
+        **Note**: If you know which component has the issue, please file the bug in the specific repository:
+        - Core framework: [lyrajs-core](https://github.com/devway-eu/lyrajs-core/issues)
+        - Project template: [lyrajs-template](https://github.com/devway-eu/lyrajs-template/issues)
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which component is affected?
+      description: Select the component where the bug occurs
+      options:
+        - Core Framework (@lyrajs/core)
+        - Project Template (create-lyrajs)
+        - Documentation
+        - Website
+        - Not sure / Multiple components
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Install '@lyrajs/core'
+        2. Create entity
+        3. Run migration
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your environment details
+      placeholder: |
+        - LyraJS version: 1.0.0
+        - Node.js version: 18.17.0
+        - npm version: 9.6.7
+        - OS: Windows 11 / macOS 13 / Ubuntu 22.04
+        - Database: MySQL 8.0 / MariaDB 10.11
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Paste any relevant error logs
+      render: shell
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem
