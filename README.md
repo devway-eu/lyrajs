@@ -396,7 +396,6 @@ LyraJS is licensed under the [GPL-3.0 License](./lyrajs-core/LICENSE).
 ## Authors
 
 - Matthieu Fergola
-- Anthony Dewitte
 
 ---
 
