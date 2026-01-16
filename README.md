@@ -12,12 +12,17 @@ LyraJS is a lightweight and modern, developer-friendly TypeScript framework for 
 
 - **TypeScript-First** - Fully typed with excellent IDE support and type safety
 - **Built-in ORM** - Decorator-based entities, repositories, and query builder for MySQL
-- **Powerful CLI** - Code generation for entities, controllers, migrations, and more
+- **Powerful CLI** - Code generation for entities, controllers, migrations, jobs, and more
+- **Dependency Injection** - Full-featured DI container with auto-injection and service management
+- **Decorator-Based Routing** - Route definition with @Get, @Post, @Put, @Delete decorators
+- **Server-Side Rendering (SSR)** - JSX/TSX template rendering with pluggable engine system
+- **Job Scheduler** - Cron-based job scheduling with @Job and @Schedule decorators
 - **Authentication** - JWT-based auth with role-based access control (RBAC)
-- **Express Integration** - Built on Express.js for familiar middleware and routing
-- **Email Support** - Integrated Nodemailer for transactional emails
-- **Migration System** - Version control for your database schema
+- **Rate Limiting** - Built-in configurable rate limiting middleware
+- **Email Support** - Integrated Nodemailer for transactional emails with template support
+- **Migration System** - Version control for your database schema with backup and restore
 - **Configuration** - YAML-based configuration with environment support
+- **Static File Serving** - Built-in middleware for serving static assets
 - **Error Handling** - HTTP exceptions and centralized error handling
 - **Developer Experience** - Hot reload, intuitive API, and helpful error messages
 
@@ -84,11 +89,41 @@ Your API will be available at `http://localhost:3333/api`
 
 ## Project Structure
 
-A typical LyraJS project follows this structure:
+A typical LyraJS v2 project follows this structure:
 
 ```
 my-project/
 ├── src/
+│   ├── controller/        # HTTP controllers (with decorators or traditional)
+│   │   ├── AuthController.ts
+│   │   └── UserController.ts
+│   ├── entity/            # Database models with decorators
+│   │   └── User.ts
+│   ├── repository/        # Database access layer
+│   │   └── UserRepository.ts
+│   ├── services/          # Business logic services
+│   │   └── YourService.ts
+│   ├── middleware/        # Custom middleware functions
+│   │   └── YourMiddleware.ts
+│   ├── router/            # Route definitions (traditional routing)
+│   │   ├── index.ts
+│   │   └── routes/
+│   │       ├── authRoutes.ts
+│   │       └── userRoutes.ts
+│   ├── jobs/              # 🆕 Scheduled jobs
+│   │   └── ExampleJob.ts
+│   ├── templates/         # 🆕 SSR templates (JSX/TSX)
+│   │   ├── ExampleRender.tsx
+│   │   └── layout/
+│   ├── fixtures/          # Seed data for testing
+│   │   └── AppFixtures.ts
+│   ├── tests/             # Test files
+│   │   └── exemple.test.ts
+│   ├── types/             # TypeScript type definitions
+│   │   └── ExempleType.ts
+│   └── server.ts          # Application entry point
+├── public/                # 🆕 Static assets
+│   └── assets/            # Images, CSS, fonts, etc.
 ├── config/                # YAML configuration files
 │   ├── database.yaml      # Database connection config
 │   ├── router.yaml        # Routing base path config
@@ -96,33 +131,14 @@ my-project/
 │   ├── parameters.yaml    # Global app parameters
 │   └── mailer.yaml        # Email service config
 ├── migrations/            # SQL migration files
-│   ├── controller/        # HTTP request handlers
-│   │   ├── AuthController.ts
-│   │   └── UserController.ts
-│   ├── entity/            # Database models with decorators
-│   │   └── User.ts
-│   ├── fixtures/          # Seed data for testing
-│   │   └── AppFixtures.ts
-│   ├── middleware/        # Custom middleware functions
-│   │   └── YourMiddleware.ts
-│   ├── repository/        # Database access layer
-│   │   └── UserRepository.ts
-│   ├── router/            # Route definitions
-│   │   ├── index.ts
-│   │   └── routes/
-│   │       ├── authRoutes.ts
-│   │       └── userRoutes.ts
-│   ├── services/          # Business logic services
-│   │   └── YourService.ts
-│   ├── tests/             # Test files
-│   │   └── exemple.test.ts
-│   ├── types/             # TypeScript type definitions
-│   │   └── ExempleType.ts
-│   └── server.ts          # Application entry point
+├── backups/               # Database backups
+├── logs/                  # Application logs
 ├── .env                   # Environment variables
 ├── package.json
 └── tsconfig.json
 ```
+
+> **Note:** LyraJS v2 supports two routing methods: traditional route files in `src/router/` and decorator-based routing with `@Get`, `@Post`, etc. in controllers. Choose the approach that best fits your project.
 
 ## Maestro CLI Commands
 
@@ -133,11 +149,23 @@ LyraJS provides a powerful CLI (`maestro`) for scaffolding and database manageme
 npx maestro create:database        # Create database from .env config
 npx maestro make:migration         # Generate SQL migration from entities
 npx maestro migration:migrate      # Execute latest migration
+npx maestro migration:rollback     # Rollback the last migration
+npx maestro migration:refresh      # Rollback all and re-run migrations
+npx maestro migration:fresh        # Drop all tables and re-run migrations
+npx maestro migration:squash       # 🆕 Squash multiple migrations into one
+
+# Database Backup & Restore
+npx maestro show:backups           # 🆕 Display available database backups
+npx maestro restore:backup         # 🆕 Restore database from a backup
+npx maestro cleanup:backups        # 🆕 Clean up old database backup files
 
 # Code Generation
 npx maestro make:entity            # Interactive entity generator
 npx maestro make:controller        # Interactive controller generator
 npx maestro make:routes            # Interactive route generator
+npx maestro make:job               # 🆕 Generate scheduled job class
+npx maestro make:scheduler         # 🆕 Generate scheduler configuration
+npx maestro make:fixtures          # Generate fixtures file
 
 # Data Management
 npx maestro fixtures:load          # Load fixture data from AppFixtures.ts
@@ -148,6 +176,7 @@ npx maestro show:controllers       # List all controllers
 npx maestro show:repositories      # List all repositories
 npx maestro show:routes            # Display route table
 npx maestro show:migrations        # List all migrations
+npx maestro show:schedulers        # 🆕 List all registered schedulers
 
 # Help
 npx maestro                        # Display help with all commands
@@ -343,8 +372,9 @@ Please read the following before contributing:
 
 ## Project Status
 
-- **lyrajs-core**: v1.0.0 - Stable
-- **lyrajs-template**: Check individual repository for status
+- **lyrajs-core**: v2.0.0 - Stable (with SSR, Scheduler, and DI)
+- **lyrajs-template**: v2.0.0 - Stable
+- **v1 Legacy Branch**: Available for projects still on v1.x
 
 ## Links
 
