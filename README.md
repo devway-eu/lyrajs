@@ -34,9 +34,9 @@ Initialize a new LyraJS project:
 
 ```bash
 # Create a new project (interactive)
-npm create lyrajs
+npm create lyrajs@latest
 # or
-npx create-lyrajs
+npx create-lyrajs@latest
 
 # Follow the prompts:
 # Project name: my-api
